@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hammer Strength Test</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Hammer Strength Test</h1>
+  <div class="game-wrapper">
+    <div class="game-container">
+      <canvas id="meterCanvas" width="300" height="400"></canvas>
+      <canvas id="needleCanvas" width="300" height="400"></canvas>
+      <img src="hammer.png" id="hammer" alt="Hammer" />
+    </div>
+    <div id="scoreMeter">
+      <div id="fillBar"></div>
+    </div>
+  </div>
+  <div id="score">Player 1: Stop to test your strength</div>
+  <div class="control">
+    <button onclick="start()">Start</button>
+    <button onclick="stopSwing()">Stop!</button>
+    <button onclick="replay()">Replay</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Player</th><th>Angle</th><th>Score</th></tr>
+    </thead>
+    <tbody id="resultsTable"></tbody>
+  </table>
+  <script src="app.js"></script>
+</body>
+</html>
+    

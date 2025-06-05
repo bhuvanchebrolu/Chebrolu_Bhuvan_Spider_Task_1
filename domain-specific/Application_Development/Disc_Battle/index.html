@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disk Battle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Disk's Battle</h1>
+    <div id="mainArena">
+        <div id="player">
+            <h1>Player1</h1>
+            
+            <div>
+                <h2><b>Color</b>:Red</h2>
+                <h3>Number of disks : <span>4</span></h3>
+            </div>
+            <br>
+
+            <div id="timer">
+                <h1>Time:<span>30s</span></h1>
+            </div>
+            
+        </div>
+        <canvas></canvas>
+        <div id="player">
+            <h1>Player2</h1>
+            <div>
+                <h2><b>Color</b>:Yellow</h2>
+                <h3>Number of disks : <span>4</span></h3>
+            </div>
+            <br>
+            <div id="timer">
+                <h1>Time:<span>30s</span></h1>
+                
+            </div>
+        </div>
+
+    </div>
+    
+
+    <div id="gameUpdates"></div>
+    <button id="reset">Reset</button>
+    <button id="pause">Pause</button>
+    <button id="play">Play</button>
+    <button id="undo">Undo</button>
+    <button id="themeToggle">🌙 Dark Mode</button>
+    <button id="resetLeaderboard">Reset Leaderboard</button>
+    <button id="openInstructions">📘 Instructions</button>
+
+    <div id="instructionsModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>📘 Game Instructions</h2>
+        <ol>
+        <li><strong>Objective:</strong> Connect 4 discs in a row (horizontally, vertically, or diagonally).</li>
+        <li><strong>Start:</strong> Each player gets 4 discs.</li>
+        <li><strong>Blocking:</strong> Before a move, opponent blocks one column.</li>
+        <li><strong>Placement:</strong> Drop your disc in any unblocked column.</li>
+        <li><strong>Victory:</strong> First to align 4 discs wins.</li>
+        <li><strong>Draw:</strong> Happens when board is full or both run out of discs.</li>
+        <li><strong>Timer:</strong> 30 seconds per move. Timeout = opponent wins.</li>
+        <li><strong>Undo:</strong> Revert your last move or block.</li>
+        <li><strong>Leaderboard:</strong> Tracks wins and draws for both players.</li>
+        <li><strong>Theme & Pause:</strong> Toggle dark/light mode, pause & resume anytime.</li>
+        </ol>
+    </div>
+    </div>
+
+    <br>
+    <div id="leaderboardContainer">
+    <h2>🏆 Leaderboard</h2>
+    <table id="leaderboard">
+        <thead>
+        <tr>
+            <th>Player</th>
+            <th>Wins</th>
+            <th>Draws</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    </div>
+
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+/* body{
+    text-align: center;
+    
+    font-family: Arial, Helvetica, sans-serif;
+}
+canvas{
+    background-color: #2a5;
+}
+#mainArena{
+    display: flex;
+    justify-content: space-evenly;
+}
+#gameUpdates {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2rem;
+    background: linear-gradient(to right, #f0f0f0, #ffffff);
+    padding: 15px 20px;
+    margin: 20px auto;
+    max-width: 700px;
+    border-left: 6px solid #4caf50;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    color: #333;
+}
+#reset{
+    background-color: rgb(224, 85, 85);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    color:white;
+    padding: 15px 20px;
+    
+} */
+/* Reset default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body.light-mode {
+    background-color: #f0f0f0;
+    color: #111;
+  }
+
+  body.dark-mode {
+    background-color: rgb(3, 3, 20);
+    color: #f0f0f0;
+  }
+  body.light-mode h1 {
+  color: #111; /* Dark text on light background */
+}
+
+body.dark-mode h1 {
+  color: #f0f0f0; /* Light text on dark background */
+}
+
+
+  #themeToggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    background: #555;
+    color: white;
+    cursor: pointer;
+  }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Main Title */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #222;
+    transition: color 0.3s ease;
+}
+
+/* Subheadings */
+h2 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #444;
+}
+
+#mainArena {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin: 20px auto;
+}
+
+/* Player Panels */
+#player {
+    background-color: #ffffff;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    width: 200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#player h1 {
+    font-size: 1.8rem;
+    color: #d32f2f;
+    margin-bottom: 10px;
+}
+
+#player:nth-of-type(3) h1 {
+    color: #fbc02d;
+}
+
+/* Canvas Styling */
+canvas {
+    border: 3px solid #333;
+    border-radius: 10px;
+    background-color: #2a5;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Game Updates */
+#gameUpdates {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2rem;
+    background: linear-gradient(to right, #f0f0f0, #ffffff);
+    padding: 15px 20px;
+    margin: 20px auto;
+    max-width: 700px;
+    border-left: 6px solid #4caf50;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    color: #333;
+}
+
+/* Reset Button */
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 2rem;
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1976d2;
+}
+
+#leaderboardContainer {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #eee;
+  border: 1px solid #aaa;
+  max-width: 400px;
+}
+#leaderboardContainer.dark-mode {
+     
+  background-color: #222;
+  color: white;
+}
+#leaderboard th, #leaderboard td {
+  padding: 5px 10px;
+  text-align: center;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background-color: #fff;
+  color: #333;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  text-align: left;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  position: relative;
+}
+
+.modal-content.dark-mode {
+  background-color: #222;
+  color: #eee;
+}
+
+.close {
+  color: #aaa;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: red;
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  #mainArena {
+    gap: 20px;
+  }
+
+  #player {
+    width: 180px;
+    padding: 15px;
+  }
+
+  canvas {
+    width: 90vw;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  #mainArena {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #player {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  canvas {
+    width: 95vw;
+    max-width: 100%;
+    height: auto;
+  }
+
+  button {
+    font-size: 1.5rem;
+    padding: 8px 16px;
+  }
+
+  #gameUpdates {
+    font-size: 1.5rem;
+    padding: 10px;
+    max-width: 90%;
+  }
+
+  #leaderboardContainer {
+    width: 90%;
+    font-size: 1.2rem;
+  }
+
+  #themeToggle {
+    font-size: 0.9rem;
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2, h3 {
+    font-size: 1rem;
+  }
+
+  #player h1 {
+    font-size: 1.4rem;
+  }
+
+  #gameUpdates {
+    font-size: 1.2rem;
+  }
+
+  button {
+    font-size: 1.2rem;
+    padding: 6px 12px;
+  }
+
+  #leaderboardContainer {
+    font-size: 1rem;
+  }
+}
+
+
